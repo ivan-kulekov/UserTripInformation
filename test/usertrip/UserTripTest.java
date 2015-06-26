@@ -2,6 +2,9 @@ package usertrip;
 
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
+
+
 
 import java.sql.SQLException;
 
@@ -10,11 +13,11 @@ import java.sql.SQLException;
  * @since Jun 26 , 2015 13:34
  */
 public class UserTripTest {
-  public Travel userTrip;
+  public TravelPersistence userTrip;
 
   @Before
   public void setUp() {
-    userTrip = new Travel();
+    userTrip = new TravelPersistence();
   }
 
 
@@ -28,5 +31,8 @@ public class UserTripTest {
     Trip userTravel = new Trip("2154789654", "2015-04-26", "2015-04-27", "Veliko Turnovo");
 
     userTrip.addUserTravel(user, userTravel);
+
+    assertEquals(userTrip.getUsers() , "");
+
   }
 }
